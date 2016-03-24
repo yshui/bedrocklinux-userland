@@ -438,6 +438,10 @@ then
 else
 	init_stratum=$default_stratum
 	init_cmd=$default_cmd
+	if [ "$init_cmd" = "" ]
+	then
+		init_cmd=$(bri -c "$init_stratum" init)
+	fi
 fi
 rootfs_stratum=$(bri -a rootfs)
 global_stratum=$(bri -a global)
